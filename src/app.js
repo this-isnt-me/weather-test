@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express	= require('express');
-const app		= express();
 const validator = require('validator');
 const chalk 	= require('chalk');
 const yargs 	= require('yargs');
@@ -12,6 +11,9 @@ const address	= process.argv[2];
 const publicDir = path.join(__dirname,'../public');
 const viewsPath = path.join(__dirname,'../templates/views');
 const partialsPath = path.join(__dirname,'../templates/partials');
+
+const app	= express();
+const port 	= process.env.PORT || 3000;
 
 //define paths to templates and using Handlebars
 app.set('view engine', 'hbs');
@@ -88,7 +90,10 @@ app.get('*', (req, res) => {
 	});
 });
 
-app.listen(3000, function() {
-	//console.log(process.env.PORT);	
-    console.log("The Server Has Started!");
+app.listen(port, function() {	
+    console.log("The Server Has Started on Port "  + port);
 });
+
+// app.listen(process.env.PORT, process.env.IP, function() {
+//     console.log("The Server Has Started!");
+// });
