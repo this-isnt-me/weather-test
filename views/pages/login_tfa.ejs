@@ -1,0 +1,106 @@
+cd<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title> Hitch Advisor</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel='icon' href='https://res.cloudinary.com/hitchadvisor/image/upload/v1535463418/fav.ico' type='image/x-icon' />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" async></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,700">
+	<link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body class="imageBehind">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-1 col-md-1 col-lg-3"></div>
+			<div class="col-10 col-md-10 col-lg-6 mainCont height100 shadow text-center">
+				<br>
+				<h1 class="fontSize200 mar2U"><i class="fas fa-shield-alt"></i> 2 Factor Authentication <i class="fas fa-shield-alt"></i></h1>
+				<div id="requestSec">
+					<p>You will now be sent a confirmation code to finish login. How do you wish to receive it?</p>
+					<div class="row mar2U">
+						<div class="col-sm-1"></div>
+						<div class="col-12 col-sm-10">
+							<div class="row">
+								<div class="col-12 col-sm-4">
+									<button id="2faSms" type="button" class="btn btn-outline-light btn-block mar2U" value="sms">SMS
+										<i class="fas fa-sms"></i>
+									</button>
+								</div>
+								<div class="col-12 col-sm-4">
+									<button id="2faWapp" type="button" class="btn btn-outline-light btn-block mar2U" value="whatsapp">WhatsApp
+										<i class="fab fa-whatsapp"></i>
+									</button>
+								</div>
+								<div class="col-12 col-sm-4">
+									<button id="2faEmail" type="button" class="btn btn-outline-light btn-block mar2U" value="email">Email
+										<i class="fas fa-envelope-open-text"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-1"></div>
+					</div>
+				</div>
+				<div id="entrySec">	
+					<br>
+					<hr class="style1">
+					<br>
+					<div class="row">
+						<div class="col-md-1 col-lg-3"></div>
+						<div class="col-12 col-md-10 col-lg-6">
+							<p class="">You have been sent an access code, it is valid for 30 mins</p>
+							<p>Please enter your code below</p>
+							<p id="codeAttempts"></p>
+							<form id="tfaForm">	
+								<div class="row no-gutters">
+									<div class="col-2">
+										<input id="tfa1" type="text" class="width100 height30 codeIn" minlength="1" maxlength="1">
+									</div>
+									<div class="col-2">
+										<input id="tfa2" type="text" class="width100 height30 codeIn" minlength="1" maxlength="1">
+									</div>
+									<div class="col-2">
+										<input id="tfa3" type="text" class="width100 height30 codeIn" minlength="1" maxlength="1">
+									</div>
+									<div class="col-2">
+										<input id="tfa4" type="text" class="width100 height30 codeIn" minlength="1" maxlength="1">
+									</div>
+									<div class="col-2">
+										<input id="tfa5" type="text" class="width100 height30 codeIn" minlength="1" maxlength="1">
+									</div>
+									<div class="col-2">
+										<input id="tfa6" type="text" class="width100 height30 codeIn" minlength="1" maxlength="1">
+									</div>
+								</div>	
+								<div class="row mar2U">
+									<div class="col-3"></div>
+									<div class="col-6"> 
+										<p>the code is not case sensitive</p>
+										<button type="submit" id="2faSubBtn" class="modalForm btn btn-outline-light mar2U" disabled>Submit</button>
+										<button type="button" id="2faClearBtn" class="modalForm btn btn-outline-light mar2U">Clear</button>
+									</div>
+									<div class="col-3"></div>
+								</div>
+							</form>
+						</div>			
+						<div class="col-md-1 col-lg-3"></div>
+					</div>
+					<br>
+					<hr class="style1">
+					<br>
+				</div>
+			<div class="col-1 col-md-1 col-lg-3"></div>
+		</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="/frontend_funcs/tfa.js"></script>
+</body>
+
+</html>

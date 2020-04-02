@@ -1,0 +1,37 @@
+<%- include ('../partials/header'); -%>
+	<div class="container-fluid mainCont">
+		<br class="">
+		<div class="row">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10 mainHeight shadow image404 text-center">
+				<p class="fontSize400 fWeight5 strokeme">NFG</p>
+				<hr class="style1">
+				<div class="fontSize250 fWeight4 strokeme">
+					<p>
+						Page doesnt exist or the website's broken
+					</p>
+					<p>
+						But don't worry
+					</p>
+					<p>
+						We'll blame it on the mud man
+					</p>
+				</div>
+				<div class="row">
+					<div class="col-md-5"></div>
+					<div class="col-12 col-md-2">
+						<% if(!currentUser){ %>
+							<a href="/" class="btn btn-light btn-lg">Back to Home Page</a>
+						<% } else {%>
+							<a href="/console" class="btn btn-light btn-lg">Back to Home Page</a>
+						<% }%>						
+					</div>
+					<div class="col-md-5"></div>
+				</div>
+				<hr class="style1">					
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+	</div>
+<script src="/frontend_funcs/loginSignup.js"></script>
+<%- include ('../partials/footer'); -%>

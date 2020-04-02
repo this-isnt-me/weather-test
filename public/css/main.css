@@ -1,24 +1,59 @@
-body {
-    color: #333333;
-    font-family: arial;
-    max-width: 650px;
-    margin: 0 auto;
-    padding: 0 16px;
-
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh
+* {
+	box-sizing: border-box;
 }
 
-.main-content {
-    flex-grow: 1;
+html {
+  position: relative;
+  min-height: 100%;
+  font-size: 17px;
+}
+
+@media (max-width: 900px) {
+  html { font-size: 14px; }
+}
+@media (max-width: 400px) {
+  html { font-size: 12px; }
+}
+
+body {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+	font-weight: 300;   
+    display: flex;
+    flex-direction: column;
+	width: 100%;
+	min-height: 85vh;
+}
+
+.btmMargin{
+	margin-bottom: 15vh;
+}
+
+.mainHeight{
+	min-height: 75vh;
+}
+
+.height100{
+	min-height: 100vh;
+}
+
+.navHeight{
+	min-height: 10vh;
+}
+
+.borderTB{
+    border-bottom: 1px solid #eeeeee;
 }
 
 footer {
     color: #888888;
+    padding: 16px;
+	background-color: black;
     border-top: 1px solid #eeeeee;
-    margin-top: 16px;
-    padding: 16px 0;
+	height: 15vh;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
 }
 
 header {
@@ -27,8 +62,13 @@ header {
 }
 
 h1 {
-    font-size: 64px;
-    margin-bottom: 16px;
+    font-size: 4rem;
+    margin: 5px;
+    border-bottom:1px solid #fe0000;
+	text-align: center;
+	color: #8a8989;
+	font-family: 'Montserrat', sans-serif;
+	margin: 1%
 }
 
 header a {
@@ -47,10 +87,291 @@ input{
 	margin: 1%;
 }
 
-button {
-	cursor: pointer;
-	border: 1px solid #888888;
-	background: #888888;
-	padding: 1%;
+.width90{
+	width: 90%;
+}
+
+.width100{
+	width: 100%;
+}
+
+.pad5{
+	padding: 5px;
+}
+
+.mar15S{
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.mar10S{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.mar2U{
+	margin-top: 2%;
+	margin-bottom: 2%; 
+}
+
+.nav-link:hover {
+	padding: 5px;
+    border-bottom:1px solid #fe0000;
+	background-color: rgba(0, 0, 0, 0.1);
 	color: white;
+}
+
+.imageBehind {
+    background-image: url("https://res.cloudinary.com/hitchadvisor/image/upload/q_auto/v1585063247/white_contours_1_1.png");
+    background-color: #000000; 
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width:100%;
+    height:auto;
+}
+
+.image404 {
+	background-color: rgba(0,0,0, 0.5) !important;
+    background-image: url("https://res.cloudinary.com/hitchadvisor/image/upload/q_auto/v1585605681/broken.png");
+	background-blend-mode: color;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width:100%;
+    height:auto;
+}
+
+.mainCont{
+	background-color: rgba(0, 0, 0, 0.85);
+}
+
+.loginCont{
+	background-color: rgba(255, 255, 255, 0.90);
+}
+
+.fontSize100{
+	font-size: 1rem;
+}
+
+.fontSize110{
+	font-size: 1.1rem;
+}
+
+.fontSize115{
+	font-size: 1.15rem;
+}
+
+.fontSize120{
+	font-size: 1.2rem;
+}
+
+.fontSize125{
+	font-size: 1.25rem;
+}
+
+.fontSize150{
+	font-size: 1.5rem;
+}
+
+.fontSize175{
+	font-size: 1.75rem;
+}
+
+.fontSize200{
+	font-size: 2rem;
+}
+
+.fontSize250{
+	font-size: 2rem;
+}
+
+.fontSize300{
+	font-size: 3rem;
+}
+
+.fontSize350{
+	font-size: 3.5rem;
+}
+
+.fontSize400{
+	font-size: 4rem;
+}
+
+.fontSize600{
+	font-size: 6rem;
+}
+
+.fWeight4{
+	font-weight: 400;
+	
+}
+
+.fWeight5{
+	font-weight: 500;
+	
+}
+
+.tall10{
+	height 10%;	
+}
+
+.tall25{
+	height: 25%;
+	border: 1px solid #fe0000;
+}
+
+.tall50{
+	height: 50%;
+	border: 1px solid #fe0000;
+}
+
+.tall75{
+	height: 75%;
+	border: 1px solid #fe0000;
+}
+
+.veryHidden {
+    display: none;
+}
+
+.height30{
+	height: 30px;
+}
+
+.redB{
+	color:#FE0000;
+	font-weight: bold;
+}
+
+/* Login SignUp Page CSS */
+
+#logInSignUp {
+	justify-content: center;
+	align-items: center;
+}
+
+#logInSignUp .innerLogin{
+	background-color: #fff;
+	border-radius: 10px;
+	position: relative;
+	overflow: hidden;
+	max-width: 95%;
+	margin: 2.5%;
+	padding: 1%;
+	color: black;
+	border: 1px solid yellow;
+	display:inline-block;
+}
+
+#logInSignUp .innerLogin a {
+	color: #333;
+	font-size: 1rem;
+	text-decoration: none;
+	margin: 1% 0;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(255,255,255); /* Fallback color */
+  background-color: rgba(255,255,255,0.8); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: black;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 75%; /* Could be more or less, depending on screen size */
+  height: 75%;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+    font-size: 2.5rem;
+    margin: 5px;
+    border-bottom:1px solid #fe0000;
+	text-align: center;
+	color: #8a8989;
+	font-family: 'Montserrat', sans-serif;
+	margin: 1%;
+	font-weight: 300;
+}
+
+.modal-content p {
+    font-size: 2rem;
+    margin: 5px;
+	text-align: center;
+	color: #8a8989;
+	font-family: 'Montserrat', sans-serif;
+	margin: 1%;
+	font-weight: 300;
+}
+
+.modalForm{
+	display: block;
+	width: 100%;
+	margin: 2.5% auto;
+}
+
+#modal-grad {
+  background-color: #fe0000;
+  background-image: linear-gradient(#fe0000, #8a8989, #fe0000);
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 75%;
+  height: 75%;
+}
+
+hr.style1 { 
+  border-top: 3px double #fe0000;
+}
+
+.transparent{
+	opacity: 0.0;
+}
+
+#tfaForm .codeIn {
+	text-align: center;
+	height: 60px;
+}
+
+.strokeme {
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+
+.marginauto {
+    margin-left: auto;
+	margin-right: auto;
+    display: block;
+}
+
+img {
+	max-width:100%,
 }

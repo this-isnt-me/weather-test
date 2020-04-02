@@ -1,50 +1,55 @@
-console.log('js file calling');
+console.log('alpha.js file calling');
 require('dotenv').config();
 const validator = require('validator');
 const chalk 	= require('chalk');
 const yargs 	= require('yargs');
 const request 	= require('request');
+const crypto 	= require('crypto');
+const User 		= require('../../models/user');
 
-const locationHunt = (location, callback) => {
-	const mapurl = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+ location +'.json?access_token=' + process.env.MAPBOX_KEY + '&limit=1';
-	request({url:mapurl, json:true}, (err, res)=>{
-		if (err){
-			callback('There has been a problem connecting to the location service', undefined);
-		} else if(!res.body.features || res.body.features.length === 0) {
-			callback('Unable to find Location', undefined);
-		} else {
-			let data = res.body;
-			let dataRtn = {
-				dispTxt : data.features[0].place_name,
-				lat : data.features[0].center[1],
-				lon : data.features[0].center[0], 				
-			}
-			callback(undefined, dataRtn);
-		}	
-	});
+const makeToken = () =>{	
+	let token = "";
+	for (let i = 0; i < 6; i++) {
+		let j = Math.floor((Math.random() * 10));
+		j = j.toString();
+		token = token + j;		
+	}
+	return token
 }
 
-const weatherHunt = (dataIn, callback) => {
-	const url = 'https://api.darksky.net/forecast/'+ process.env.DARK_SKY_KEY +'/' + dataIn.lat + ',' + dataIn.lon + '?units=si&exclude=minutely,hourly,daily,alerts,flags';
-	request({url:url, json:true}, (err, res)=>{
-		if (err){
-			console.log('There has been a problem connecting to the weather service');
-		} else if(res.body.error) {
-			console.log('Unable to find Location');
-		} else {
-			let data = res.body.currently;
-			let dataBack = {
-				dispTxt : dataIn.dispTxt,
-				temp : data.temperature,
-				summary : data.summary,
-				rain: data.precipProbability * 100,
-			}
-			callback(undefined, dataBack);		
-		}
-	});
+const makeSignUpToken = (length) =>{
+    var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".split("");
+    var b = [];  
+    for (var i=0; i<length; i++) {
+        var j = (Math.random() * (a.length-1)).toFixed(0);
+        b[i] = a[j];
+    }
+    return b.join("");
+}
+
+const encrypt = (input) => {
+    let cipher = crypto.createCipher('aes-256-cbc', process.env.ECODING_KEY);
+    let crypted = cipher.update(input, 'utf8', 'hex');
+    crypted += cipher.final('hex');
+    return crypted;
+}
+
+const decrypt = (input) => {
+    if (input === null || typeof input === 'undefined') { return input }
+    let decipher = crypto.createDecipher('aes-256-cbc', process.env.ECODING_KEY);
+    let dec = decipher.update(input, 'hex', 'utf8');
+    dec += decipher.final('utf8');
+    return dec;
+}
+
+const updateUser = async (id, update) => {
+	await User.findByIdAndUpdate(id, update);
 }
 
 module.exports = {
-	locationHunt: locationHunt,
-	weatherHunt: weatherHunt,
+	updateUser: updateUser,
+	makeToken: makeToken,
+	encrypt: encrypt,
+	decrypt: decrypt,
+	makeSignUpToken: makeSignUpToken,
 }
